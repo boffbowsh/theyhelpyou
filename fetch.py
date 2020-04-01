@@ -8,7 +8,7 @@ from pynamodb.models import DoesNotExist
 
 
 def get_postcode_from_event(e):
-    pcd = e["path"].replace(' ', '').lstrip('/')
+    pcd = e["rawPath"].replace(' ', '').lstrip('/')
     try:
         return Postcode.get(pcd)
     except DoesNotExist:
@@ -24,31 +24,28 @@ def get_gss(pcd):
     return None
 
 def format_hub(hub):
-    return {
-            "isBase64Encoded": False,
-            "statusCode": 200,
-            "body": {
-                "gss": hub.gss,
-                "name": hub.name,
-                "homepage_url": hub.homepage_url,
-                "email": hub.email,
-                "hub_url": hub.hub_url,
-                "phone": hub.phone,
-                "date_collected": hub.date_collected,
-                "notes": hub.notes
-            },
-            "headers": {
-                "Content-Type": "application/json"
-            }
+    d = {
+            "gss": hub.gss,
+            "name": hub.name,
+            "homepage_url": hub.homepage_url,
+            "email": hub.email,
+            "hub_url": hub.hub_url,
+            "phone": hub.phone,
+            "date_collected": hub.date_collected,
+            "notes": hub.notes
         }
+    print(d)
+    return d
 
 def lambda_handler(event, context):
+    print(event)
     pcd = get_postcode_from_event(event)
     if not pcd:
         return {
+            "cookies": [],
             "isBase64Encoded": False,
-            "statusCode": 404,
-            "body": { "error": "Postcode not found" },
+            "statusCode": "404",
+            "body": '{ "error": "Postcode not found" }',
             "headers": {
                 "Content-Type": "application/json"
             }
@@ -57,9 +54,10 @@ def lambda_handler(event, context):
     gss = get_gss(pcd)
     if not gss:
         return {
+            "cookies": [],
             "isBase64Encoded": False,
-            "statusCode": 404,
-            "body": { "error": "No data found for postcode" },
+            "statusCode": "404",
+            "body": '{ "error": "No data found for postcode" }',
             "headers": {
                 "Content-Type": "application/json"
             }
@@ -67,12 +65,12 @@ def lambda_handler(event, context):
 
     try:
         hub = CommunityHub.get(gss)
-        return format_hub(hub)
+        return json.dumps(format_hub(hub))
     except DoesNotExist:
         return {
             "isBase64Encoded": False,
-            "statusCode": 404,
-            "body": { "error": "No data found for this area" },
+            "statusCode": "404",
+            "body": '{ "error": "No data found for this area" }',
             "headers": {
                 "Content-Type": "application/json"
             }
