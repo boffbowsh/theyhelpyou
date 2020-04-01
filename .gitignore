@@ -1,0 +1,4 @@
+.requirements*
+package.zip
+.vscode
+.pytest_cache
