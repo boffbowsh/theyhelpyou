@@ -8,10 +8,13 @@ from pynamodb.models import DoesNotExist
 
 
 def get_postcode_from_event(e):
-    pcd = e["rawPath"].replace(' ', '').lstrip('/')
-    try:
-        return Postcode.get(pcd)
-    except DoesNotExist:
+    if "queryStringParameters" in e and "postcode" in e["queryStringParameters"]:
+        pcd = e["queryStringParameters"]["postcode"].replace(' ', '').lstrip('/')
+        try:
+            return Postcode.get(pcd)
+        except DoesNotExist:
+            return None
+    else:
         return None
 
 def get_gss(pcd):

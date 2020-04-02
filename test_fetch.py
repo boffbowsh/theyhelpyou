@@ -2,10 +2,10 @@ import json
 from fetch import lambda_handler
 
 def _request_postcode(pcd):
-    return json.loads(lambda_handler({"rawPath": "/{}".format(pcd)}, {}))
+    return json.loads(lambda_handler({"queryStringParameters": {"postcode": pcd}}, {}))
 
 def test_not_found():
-    res = lambda_handler({"rawPath": "/FOOBAR"}, {})
+    res = lambda_handler({"queryStringParameters": {"postcode": "FOOBAR"}}, {})
     assert res["statusCode"] == "404"
     assert json.loads(res["body"]) == { "error": "Postcode not found" }
     assert res["headers"]["Content-Type"] == "application/json"
