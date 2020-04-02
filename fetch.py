@@ -9,7 +9,7 @@ from pynamodb.models import DoesNotExist
 
 def get_postcode_from_event(e):
     if "queryStringParameters" in e and "postcode" in e["queryStringParameters"]:
-        pcd = e["queryStringParameters"]["postcode"].replace(' ', '').lstrip('/')
+        pcd = e["queryStringParameters"]["postcode"].replace(' ', '').lstrip('/').upper()
         try:
             return Postcode.get(pcd)
         except DoesNotExist:
@@ -28,14 +28,24 @@ def get_gss(pcd):
 
 def format_hub(hub):
     d = {
-            "gss": hub.gss,
-            "name": hub.name,
-            "homepage_url": hub.homepage_url,
-            "email": hub.email,
-            "hub_url": hub.hub_url,
-            "phone": hub.phone,
-            "date_collected": hub.date_collected,
-            "notes": hub.notes
+            "cookies": [],
+            "isBase64Encoded": False,
+            "statusCode": "200",
+            "body": json.dumps({
+                "gss": hub.gss,
+                "name": hub.name,
+                "homepage_url": hub.homepage_url,
+                "email": hub.email,
+                "hub_url": hub.hub_url,
+                "phone": hub.phone,
+                "date_collected": hub.date_collected,
+                "notes": hub.notes
+            }),
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": '*',
+                "Access-Control-Allow-Methods": "OPTIONS,GET"
+            }
         }
     print(d)
     return d
@@ -50,7 +60,9 @@ def lambda_handler(event, context):
             "statusCode": "404",
             "body": '{ "error": "Postcode not found" }',
             "headers": {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": '*',
+                "Access-Control-Allow-Methods": "OPTIONS,GET"
             }
         }
 
@@ -68,7 +80,7 @@ def lambda_handler(event, context):
 
     try:
         hub = CommunityHub.get(gss)
-        return json.dumps(format_hub(hub))
+        return format_hub(hub)
     except DoesNotExist:
         return {
             "isBase64Encoded": False,
