@@ -12,6 +12,9 @@ package.zip: .requirements *.py
 	cd ..
 	zip package.zip *.py
 
-.PHONY: deploy
+.PHONY: deploy s3
 deploy: package.zip
 	aws lambda update-function-code --region eu-west-2 --function-name fetch_by_postcode --zip-file fileb://package.zip --publish
+
+s3: site/index.html
+	aws s3 cp site/index.html s3://theyhelpyou/index.html --acl public-read

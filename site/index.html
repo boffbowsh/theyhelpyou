@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Find local support for vulnerable and shielding individuals in the UK affected by the COVID-19 Coronavirus.">
+  <meta name="author" content="Paul Bowsher and contributors">
+
+  <title>TheyHelpYou</title>
+
+  <link rel="canonical" href="https://theyhelpyou.co.uk/">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="img/favicons/manifest.json">
+  <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@COVIDCOMMUNITYHUBSTWITTER">
+  <meta name="twitter:creator" content="@COVIDCOMMUNITYHUBSTWITTER">
+  <meta name="twitter:title" content="TheyHelpYou">
+  <meta name="twitter:description" content="Find local support for vulnerable and shielding individuals in the UK affected by the COVID-19 Coronavirus.">
+  <meta name="twitter:image" content="https://theyhelpyou.co.uk/img/social-card.png">
+
+  <!-- Facebook / OpenGraph -->
+  <meta property="og:url" content="https://theyhelpyou.co.uk/">
+  <meta property="og:title" content="TheyHelpYou">
+  <meta property="og:description" content="Find local support for vulnerable and shielding individuals in the UK affected by the COVID-19 Coronavirus.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://theyhelpyou.co.uk/img/social-card.png">
+  <meta property="og:image:secure_url" content="https://theyhelpyou.co.uk/img/social-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <style type="text/css">
+    #error, #results_card, #results_success, #results_error { display: none };
+  </style>
+</head>
+<body>
+
+<a class="skippy sr-only sr-only-focusable" href="#content">
+<span class="skippy-text">Skip to main content</span>
+</a>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand" href="#">TheyHelpYou</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+</div>
+</nav>
+
+<main role="main">
+
+<!-- SERVICE DESCRIPTION + SEARCH -->
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3 mt-5">Find help if you are in isolation</h1>
+    <p>This service signposts the local community hubs providing support to vulnerable and shielding citizens during the Coronavirus pandemic.</p>
+    <p>Enter your postcode to find the specific site and contact details for those providing support in your local community.</p>
+
+        <form class="form-inline d-flex justify-content-center my-2 my-lg-0" id="form">
+          <input class="form-control form-control-lg mr-sm-2" type="text" placeholder="Postcode" aria-label="Postcode" id="form_postcode">
+          <button class="btn btn-success btn-lg my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+<!-- ERROR -->
+    <div id="error" class="alert alert-warning mt-3" role="alert">
+    </div>
+<!-- /ERROR -->
+
+<!-- SHARE -->
+    <div class="alert alert-light mt-3" role="alert">
+      <svg class="bi bi-reply-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.079 11.9l4.568-3.281a.719.719 0 000-1.238L9.079 4.1A.716.716 0 008 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z"/>
+      </svg>
+      Share this:
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://theyhelpyou.co.uk/" target="_blank" class="alert-link">Facebook</a>,
+      <a href="https://twitter.com/intent/tweet?text=https://theyhelpyou.co.uk/" target="_blank" class="alert-link">Twitter</a>,
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://theyhelpyou.co.uk/&title=TheyHelpYou&summary=&source=" target="_blank" class="alert-link">LinkedIn</a>.
+    </div>
+
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="container">
+
+  <a name="results" />
+
+  <div id="results_placeholder" class="alert alert-light text-center" role="alert">
+    Your results will appear here.
+  </div>
+
+  <div id="results_success" class="alert alert-success" role="alert">
+    Found the local community hub for <strong>form_postcode</strong>.
+  </div>
+
+  <div id="results_error" class="alert alert-danger" role="alert">
+    Unable to find community hub for <strong>form_postcode</strong> at the moment. Please try again later.
+  </div>
+
+<div id="results_card" class="card">
+  <h5 class="card-header">
+    <svg role="img" class="bi bi-geo" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <title>Icon showing a pin in a map</title>
+      <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
+      <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
+      <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
+    </svg>
+
+    <a id="result_title" href="API_HOMEPAGE_URL" title="API_NAME" target="_blank">API_NAME</a>
+  </h5>
+  <div class="card-body">
+    <div class="container">
+
+      <!-- Hub -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Info symbol icon</title>
+            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+            <circle cx="8" cy="4.5" r="1"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Community Hub</span>
+        </div>
+        <div class="col text-truncate">
+          <a id="result_hub" href="API_HUB_URL" title="API_NAME Community Hub" target="_blank">API_HUB_URL</a>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Envelope icon</title>
+            <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
+            <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Email</span>
+        </div>
+        <div class="col">
+          <a id="result_email" href="mailto:API_EMAIL" title="Email API_NAME Community Hub">API_EMAIL</a>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Smartphone icon</title>
+            <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Phone</span>
+        </div>
+        <div class="col">
+          <a id="result_phone" href="tel:API_PHONE" title="Call API_NAME Community Hub">API_PHONE</a>
+        </div>
+      </div>
+
+      <!-- Updated -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-calendar" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Calendar icon</title>
+            <path fill-rule="evenodd" d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Last Updated</span>
+        </div>
+        <div class="col" id="result_date_collected">
+          API_DATE_COLLECTED
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- CTA Buttons -->
+  <div class="card-footer text-right">
+
+    <a class="btn btn-secondary" href="mailto:API_EMAIL" title="Email API_NAME
+    Community Hub" id="result_send_email">
+      <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Email community hub icon</title>
+        <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
+        <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
+      </svg>
+      Email
+    </a>
+
+    <a class="btn btn-secondary" href="tel:API_PHONE" title="Call API_NAME
+    Community Hub" id="result_call">
+      <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Call community hub icon</title>
+        <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+      </svg>
+      Call
+    </a>
+
+    <a class="btn btn-primary" href="API_HUB_URL" title="API_NAME Community Hub"
+    target="_blank" id="result_open_hub">
+      <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Open community hub icon</title>
+        <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+        <circle cx="8" cy="4.5" r="1"/>
+      </svg>
+      Open Hub
+    </a>
+
+  </div>
+
+<!-- /RESULTS -->
+</div>
+
+<!-- ADDITIONAL INFO + LINKS -->
+<div class="container mt-3">
+  <h4>More information</h4>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Coronavirus Guidance</h5>
+        <p class="card-text">Read more about what you can and cannot do and other official COVID-19 Coronavirus guideance from the UK Government.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-secondary" href="https://www.gov.uk/coronavirus" role="button">GOV.UK &raquo;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">COVID-19 Symptoms</h5>
+        <p class="card-text">Symptoms and what to do if you think you may have Coronavirus (COVID-19) from the NHS.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-secondary" href="https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms-and-what-to-do/" role="button">NHS UK &raquo;</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">NHS Volunteer Responders</h5>
+        <p class="card-text">NHS Volunteer Responders has been set up to support the NHS and the care sector during the COVID-19 outbreak.</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-secondary" href="https://www.goodsamapp.org/NHS" role="button">GoodSam &raquo;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="container">
+  <hr>
+  <p class="text-muted">&copy; TheyHelpYou 2020.
+    <!--<a href="#" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.-->
+  </p>
+</footer>
+
+<!-- Javascript -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#form").on("submit", function(e) {
+        e.preventDefault();
+
+        var pcd = $("#form_postcode").val();
+
+        $.getJSON("/api/postcode?postcode=" + pcd, function(data) {
+            console.log(data);
+            $("#results_success strong").text(pcd);
+            $("#results_success").show();
+            $("#results_card").show();
+
+            $("#result_title").text(data.name);
+            $("#result_title").attr("title", data.name);
+            $("#result_title").attr("href", data.homepage_url);
+
+            $("#result_hub").text(data.hub_url);
+            $("#result_hub").attr("href", data.hub_url);
+            $("#result_open_hub").attr("href", data.hub_url);
+
+            if (data.email) {
+                $("#result_email").text(data.email);
+                $("#result_email").attr("href", "mailto:"+data.email);
+                $("#result_send_email").attr("href", "mailto:"+data.email);
+            }
+
+            if (data.phone) {
+                $("#result_phone").text(data.phone);
+                $("#result_phone").attr("href", "tel:"+data.phone);
+                $("#result_call").attr("href", "tel:"+data.phone);
+
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
