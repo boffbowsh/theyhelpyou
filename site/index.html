@@ -290,7 +290,7 @@ $(document).ready(function() {
 
         var pcd = $("#form_postcode").val();
 
-        $.getJSON("/api/postcode?postcode=" + pcd, function(data) {
+        $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
             console.log(data);
             $("#results_success strong").text(pcd);
             $("#results_success").show();
