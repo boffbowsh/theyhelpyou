@@ -42,7 +42,7 @@
   <meta property="og:image:height" content="630">
 
   <style type="text/css">
-    #error, #results_success, #results_error { display: none };
+    #postcode_error, #results_success, #results_error { display: none };
   </style>
 </head>
 <body>
@@ -74,7 +74,8 @@
     </div>
 
 <!-- ERROR -->
-    <div id="error" class="alert alert-warning mt-3" role="alert">
+    <div id="postcode_error" class="alert alert-warning mt-3" role="alert">
+      Please enter a valid UK postcode, for example SW1A 1AA
     </div>
 <!-- /ERROR -->
 
@@ -301,21 +302,29 @@
 
 <script type="text/javascript">
 var template = Handlebars.compile(document.getElementById('results_template').innerHTML);
+var postcode_re = /^([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?|[a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW]|[a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]) {0,}([0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2})$/;
 
 $(document).ready(function() {
     $("#form").on("submit", function(e) {
         e.preventDefault();
 
         var pcd = $("#form_postcode").val();
-        $("#results_card").remove();
+        var matches = pcd.match(postcode_re);
+        if (matches && matches.length == 3) {
+          pcd = (matches[1] + " " + matches[2]).toUpperCase();
+          $("#results_card").remove();
+          $("#postcode_error").hide()
 
-        $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
-            $("#results_success strong").text(pcd);
-            $("#results_success").show();
-            $("#results_placeholder").hide();
+          $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
+              $("#results_success strong").text(pcd);
+              $("#results_success").show();
+              $("#results_placeholder").hide();
 
-            $(template(data)).appendTo("#results");
-        });
+              $(template(data)).appendTo("#results");
+          });
+        } else {
+          $("#postcode_error").show();
+        }
     });
 });
 </script>
