@@ -11,6 +11,7 @@ pynamodb = "*"
 tqdm = "*"
 retrying = "*"
 pytest = "*"
+aws-xray-sdk = "*"
 
 [requires]
 python_version = "3.7"

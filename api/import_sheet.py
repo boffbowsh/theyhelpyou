@@ -1,9 +1,16 @@
 import csv
 from urllib.request import urlopen
 
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.core import patch_all
+
 from models import CommunityHub
 
+xray_recorder.configure()
+patch_all()
+
 CommunityHub.create_table(wait=True)
+
 
 
 def lambda_handler(event, context):

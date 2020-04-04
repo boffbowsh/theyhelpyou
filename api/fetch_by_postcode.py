@@ -4,7 +4,11 @@ import re
 from models import CommunityHub, Postcode
 
 from pynamodb.models import DoesNotExist
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.core import patch_all
 
+xray_recorder.configure()
+patch_all()
 
 def get_postcode_from_event(e):
     if "queryStringParameters" in e and "postcode" in e["queryStringParameters"]:
