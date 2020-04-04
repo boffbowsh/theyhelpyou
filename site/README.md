@@ -19,4 +19,3 @@ Then visit http://0.0.0.0:8000/index.html
  - Copyright? Any other licence?
  - Create robots.txt
  - Create humans.txt
- - Create .well-known/security.txt
