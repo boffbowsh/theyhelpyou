@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "280c0f24dbd244cc5fe1291f44a34a43d716f7a7202af0d76633de1018c254e7"
+            "sha256": "ea946e1f5c37638e2506b8503d56b0b6db44973626c2f14a952deefe1d5d04f7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -160,6 +160,14 @@
                 "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
             ],
             "version": "==1.14.0"
+        },
+        "slack-webhook": {
+            "hashes": [
+                "sha256:5efd898c1d4befbd45ee00c7cf29e2b1676278e8d6ae9212ece993b9d35f4caa",
+                "sha256:babf36c4921e848ba70a77eeb57ae9e781a8d9bca10d2688515092006477f25a"
+            ],
+            "index": "pypi",
+            "version": "==1.0.3"
         },
         "tqdm": {
             "hashes": [

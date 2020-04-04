@@ -12,6 +12,7 @@ tqdm = "*"
 retrying = "*"
 pytest = "*"
 aws-xray-sdk = "*"
+slack-webhook = "*"
 
 [requires]
 python_version = "3.7"
