@@ -1,6 +1,7 @@
 from pynamodb.models import Model
 from pynamodb.attributes import UnicodeAttribute
 
+
 class Postcode(Model):
     class Meta:
         table_name = "postcode_to_gss"
@@ -55,6 +56,7 @@ class Postcode(Model):
     calncv = UnicodeAttribute(null=True)
     stp = UnicodeAttribute(null=True)
 
+
 class CommunityHub(Model):
     class Meta:
         table_name = "community_response_hubs"
@@ -80,5 +82,5 @@ class CommunityHub(Model):
             "hub_url": self.hub_url,
             "phone": self.phone,
             "date_collected": self.date_collected,
-            "notes": self.notes
+            "notes": self.notes,
         }
