@@ -14,9 +14,4 @@ Then visit http://0.0.0.0:8000/index.html
 
 # TODO
 
- - Create all the favicons
- - Create img/social-card.png (1200x630px)
  - Copyright? Any other licence?
- - Create robots.txt
- - Create humans.txt
- - Create .well-known/security.txt

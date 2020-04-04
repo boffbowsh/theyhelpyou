@@ -1,0 +1,31 @@
+
+THEY HELP YOU
+
+TheyHelpYou is a project to help vulnerable, shielding and self-isolating people
+to find their local Community Hub and get help.
+
+It is the inspiration, design and code of @boffbowsh, @Rossehkins and @RTO.
+
+With lots of help crowd-sourcing the data from @CreaFarrar, @Doccykins, and many
+others.
+
+If you would like to help you, the most important thing you can do is:
+
+  STAY HOME.
+  PROTECT THE NHS.
+  SAVE LIVES.
+
+If you have time to spare you can contribute by reviewing and commenting where
+you find out of date information in this spreadsheet:
+https://docs.google.com/spreadsheets/d/1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s/edit?usp=sharing
+
+For example, perhaps the Community Hub page has been updated and the URL has
+changed.
+
+You can raise issues and PR at our project on GitHub:
+https://github.com/boffbowsh/covidcommunityhubs
+
+
+Thank you, thank the Community Hub staff and volunteers, and #thankyouNHS
+
+♥
