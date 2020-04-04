@@ -23,11 +23,11 @@ def test_full_record():
     assert res["phone"] == "0300 200 1008"
     assert (
         res["hub_url"]
-        == "https://www.surreycc.gov.uk/people-and-community/emergency-planning-and-community-safety/coronavirus/community-support/need-help"
+        == "https://www.surreycc.gov.uk/people-and-community/emergency-planning-and-community-safety/coronavirus/community-support/need-help"  # noqa: W503
     )
-    assert res["email"] == None
+    assert res["email"] is None
     assert res["date_collected"] == "31/03/2020"
-    assert res["notes"] == None
+    assert res["notes"] is None
 
 
 def test_no_spaces():
