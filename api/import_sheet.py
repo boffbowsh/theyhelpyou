@@ -12,7 +12,6 @@ patch_all()
 CommunityHub.create_table(wait=True)
 
 
-
 def lambda_handler(event, context):
     resp = urlopen(
         "https://docs.google.com/spreadsheets/d/1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s/export?gid=0&format=csv&id=1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s"
