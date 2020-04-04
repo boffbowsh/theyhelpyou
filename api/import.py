@@ -1,8 +1,6 @@
 import csv
 from urllib.request import urlopen
 
-from tqdm import tqdm
-
 from models import CommunityHub
 
 CommunityHub.create_table(wait=True)
@@ -16,7 +14,7 @@ def handler(event, context):
         c = csv.reader(lines)
         next(c)
         CommunityHub.batch_write()
-        for r in tqdm(c):
+        for r in c:
             d = {
                 "name": r[0],
                 "homepage_url": r[2],
@@ -29,7 +27,6 @@ def handler(event, context):
 
             record = CommunityHub(r[1], **d)
             record.save()
-            # break
 
     else:
         print("error")

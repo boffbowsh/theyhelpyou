@@ -6,11 +6,10 @@
 	mkdir .requirements
 	pip install -r .requirements.txt --no-deps -t .requirements
 
-package.zip: .requirements *.py
-	rm -rf package.zip
+package.zip: .requirements api/*.py
+	rm -f package.zip
 	(cd .requirements ; zip ../package.zip -r *)
-	cd ..
-	zip package.zip *.py
+	(cd api ; zip ../package.zip -r *.py)
 
 .PHONY: deploy s3
 deploy: package.zip
