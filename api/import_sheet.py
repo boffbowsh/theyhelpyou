@@ -6,13 +6,12 @@ from models import CommunityHub
 CommunityHub.create_table(wait=True)
 
 
-def handler(event, context):
+def lambda_handler(event, context):
     resp = urlopen(
         "https://docs.google.com/spreadsheets/d/1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s/export?gid=0&format=csv&id=1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s"
     )
 
     if resp.status == 200:
-        print("ok")
         lines = [str(l, "utf-8") for l in resp.read().splitlines()]
         c = csv.reader(lines)
         next(c)
@@ -32,8 +31,4 @@ def handler(event, context):
             record.save()
 
     else:
-        print("error")
-
-
-if __name__ == "__main__":
-    handler(1, 2)
+        print("error fetching CSV {}".format(resp.status))
