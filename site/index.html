@@ -307,7 +307,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         var pcd = $("#form_postcode").val();
-        $("#results_card").html();
+        $("#results_card").remove();
 
         $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
             $("#results_success strong").text(pcd);
