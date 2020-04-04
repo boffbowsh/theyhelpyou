@@ -301,7 +301,10 @@
 </script>
 
 <script type="text/javascript">
-var template = Handlebars.compile(document.getElementById('results_template').innerHTML);
+var results_template = Handlebars.compile(document.getElementById('results_template').innerHTML);
+var postcode_not_found_template = Handlebars.compile("We don't recognise the postcode <strong>{{pcd}}</strong>. It might not exist any more, or it might be too new.");
+var lookup_error_template = Handlebars.compile("Unable to find a Community Hub for <strong>{{pcd}}</strong> at the moment. Please try again later.");
+
 var postcode_re = /^([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?|[a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW]|[a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]) {0,}([0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2})$/;
 
 $(document).ready(function() {
@@ -313,15 +316,26 @@ $(document).ready(function() {
         if (matches && matches.length == 3) {
           pcd = (matches[1] + " " + matches[2]).toUpperCase();
           $("#results_card").remove();
-          $("#postcode_error").hide()
+          $("#postcode_error").hide();
+          $("#results_error").hide();
+          $("#results_placeholder").hide();
 
-          $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
+          $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd)
+            .done(function(data) {
               $("#results_success strong").text(pcd);
               $("#results_success").show();
-              $("#results_placeholder").hide();
 
-              $(template(data)).appendTo("#results");
-          });
+              $(results_template(data)).appendTo("#results");
+            })
+            .fail(function(jqxhr) {
+              error = JSON.parse(jqxhr.responseText);
+              console.log(error);
+              if (error.error == "Postcode not found") {
+                $("#results_error").html(postcode_not_found_template({pcd: pcd})).show();
+              } else {
+                $("#results_error").html(lookup_error_template({pcd: pcd})).show();
+              }
+            })
         } else {
           $("#postcode_error").show();
         }
