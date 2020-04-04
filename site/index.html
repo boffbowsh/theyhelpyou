@@ -316,6 +316,8 @@ $(document).ready(function() {
             $("#result_hub").attr("href", data.hub_url);
             $("#result_open_hub").attr("href", data.hub_url);
 
+            $("#result_date_collected").text(data.date_collected);
+
             if (data.email) {
                 $("#result_email").text(data.email);
                 $("#result_email").attr("href", "mailto:"+data.email);
