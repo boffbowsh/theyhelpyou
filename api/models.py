@@ -70,3 +70,15 @@ class CommunityHub(Model):
     email = UnicodeAttribute(null=True)
     date_collected = UnicodeAttribute(null=True)
     notes = UnicodeAttribute(null=True)
+
+    def attributes(self):
+        return {
+            "gss": self.gss,
+            "name": self.name,
+            "homepage_url": self.homepage_url,
+            "email": self.email,
+            "hub_url": self.hub_url,
+            "phone": self.phone,
+            "date_collected": self.date_collected,
+            "notes": self.notes
+        }

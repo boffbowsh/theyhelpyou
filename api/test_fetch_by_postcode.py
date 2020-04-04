@@ -1,8 +1,8 @@
 import json
-from fetch import lambda_handler
+from fetch_by_postcode import lambda_handler
 
 def _request_postcode(pcd):
-    return json.loads(lambda_handler({"queryStringParameters": {"postcode": pcd}}, {}))
+    return json.loads(lambda_handler({"queryStringParameters": {"postcode": pcd}}, {})["body"])
 
 def test_not_found():
     res = lambda_handler({"queryStringParameters": {"postcode": "FOOBAR"}}, {})

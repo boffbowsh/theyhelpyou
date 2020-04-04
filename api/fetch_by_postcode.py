@@ -26,71 +26,34 @@ def get_gss(pcd):
 
     return None
 
-def format_hub(hub):
-    d = {
+def format_response(data, status):
+    print(data)
+    return {
             "cookies": [],
             "isBase64Encoded": False,
-            "statusCode": "200",
-            "body": json.dumps({
-                "gss": hub.gss,
-                "name": hub.name,
-                "homepage_url": hub.homepage_url,
-                "email": hub.email,
-                "hub_url": hub.hub_url,
-                "phone": hub.phone,
-                "date_collected": hub.date_collected,
-                "notes": hub.notes
-            }),
+            "statusCode": str(status),
+            "body": json.dumps(data),
             "headers": {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": '*',
                 "Access-Control-Allow-Methods": "OPTIONS,GET"
             }
         }
-    print(d)
-    return d
 
 def lambda_handler(event, context):
-    print(event)
     pcd = get_postcode_from_event(event)
     if not pcd:
-        return {
-            "cookies": [],
-            "isBase64Encoded": False,
-            "statusCode": "404",
-            "body": '{ "error": "Postcode not found" }',
-            "headers": {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": '*',
-                "Access-Control-Allow-Methods": "OPTIONS,GET"
-            }
-        }
+        return format_response({"error": "Postcode not found"}, 404)
 
     gss = get_gss(pcd)
     if not gss:
-        return {
-            "cookies": [],
-            "isBase64Encoded": False,
-            "statusCode": "404",
-            "body": '{ "error": "No data found for postcode" }',
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        }
+        return format_response({"error": "No data found for postcode"}, 404)
 
     try:
         hub = CommunityHub.get(gss)
-        return format_hub(hub)
+        return format_response(hub.attributes(), 200)
     except DoesNotExist:
-        return {
-            "isBase64Encoded": False,
-            "statusCode": "404",
-            "body": '{ "error": "No data found for this area" }',
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        }
-
+        return format_response({"error": "No data found for this area"}, 404)
 
 if __name__ == "__main__":
     e = {
