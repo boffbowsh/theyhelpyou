@@ -1,9 +1,13 @@
+import base64
 import csv
+import json
+import os
 from urllib.request import urlopen
 
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.core import patch_all
 
+from helpers import format_response
 from models import CommunityHub
 
 xray_recorder.configure()
@@ -11,8 +15,17 @@ patch_all()
 
 CommunityHub.create_table(wait=True)
 
-
 def lambda_handler(event, context):
+    if "body" not in event:
+        return format_response("Unauthorized", 403)
+    else:
+        if event["isBase64Encoded"]:
+            data = json.loads(base64.b64decode(event["body"]))
+        else:
+            data = json.loads(event["body"])
+        if "token" not in data or data["token"] != os.environ.get("SECRET_TOKEN"):
+            return format_response("Unauthorized", 403)
+
     resp = urlopen(
         "https://docs.google.com/spreadsheets/d/1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s/export?gid=0&format=csv&id=1uwcEbPob7EcOKBe_H-OiYEP3fITjbZH-ccpc81fMO7s"
     )

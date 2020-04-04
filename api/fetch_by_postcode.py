@@ -1,6 +1,7 @@
 import json
 import re
 
+from helpers import format_response
 from models import CommunityHub, Postcode
 
 from pynamodb.models import DoesNotExist
@@ -32,20 +33,6 @@ def get_gss(pcd):
         return gss
 
     return None
-
-
-def format_response(data, status):
-    return {
-        "cookies": [],
-        "isBase64Encoded": False,
-        "statusCode": str(status),
-        "body": json.dumps(data),
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "OPTIONS,GET",
-        },
-    }
 
 
 def lambda_handler(event, context):
