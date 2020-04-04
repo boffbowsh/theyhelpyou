@@ -14,5 +14,4 @@ Then visit http://0.0.0.0:8000/index.html
 
 # TODO
 
- - Create all the favicons
  - Copyright? Any other licence?
