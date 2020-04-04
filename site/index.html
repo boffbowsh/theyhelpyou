@@ -24,8 +24,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@COVIDCOMMUNITYHUBSTWITTER">
-  <meta name="twitter:creator" content="@COVIDCOMMUNITYHUBSTWITTER">
+  <meta name="twitter:site" content="@theyhelpyouUK">
+  <meta name="twitter:creator" content="@theyhelpyouUK">
   <meta name="twitter:title" content="TheyHelpYou">
   <meta name="twitter:description" content="Find local support for vulnerable and shielding individuals in the UK affected by the COVID-19 Coronavirus.">
   <meta name="twitter:image" content="https://theyhelpyou.co.uk/img/social-card.png">
@@ -52,29 +52,26 @@
 </a>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<a class="navbar-brand" href="#">TheyHelpYou</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
 
-<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-</div>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">TheyHelpYou</a>
 </nav>
 
 <main role="main">
 
 <!-- SERVICE DESCRIPTION + SEARCH -->
-<div class="jumbotron">
+<div class="jumbotron" id="content">
   <div class="container">
     <h1 class="display-3 mt-5">Find help if you are in isolation</h1>
     <p>This service signposts the local community hubs providing support to vulnerable and shielding citizens during the Coronavirus pandemic.</p>
     <p>Enter your postcode to find the specific site and contact details for those providing support in your local community.</p>
 
-        <form class="form-inline d-flex justify-content-center my-2 my-lg-0" id="form">
-          <input class="form-control form-control-lg mr-sm-2" type="text" placeholder="Postcode" aria-label="Postcode" id="form_postcode">
-          <button class="btn btn-success btn-lg my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <div class="my-5">
+      <form class="form-inline d-flex justify-content-center my-2 my-lg-0" id="form">
+        <input class="form-control form-control-lg mr-sm-2" type="text" placeholder="Postcode" aria-label="Postcode" id="form_postcode">
+        <button class="btn btn-success btn-lg my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
 
 <!-- ERROR -->
     <div id="error" class="alert alert-warning mt-3" role="alert">
@@ -89,7 +86,8 @@
       Share this:
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://theyhelpyou.co.uk/" target="_blank" class="alert-link">Facebook</a>,
       <a href="https://twitter.com/intent/tweet?text=https://theyhelpyou.co.uk/" target="_blank" class="alert-link">Twitter</a>,
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://theyhelpyou.co.uk/&title=TheyHelpYou&summary=&source=" target="_blank" class="alert-link">LinkedIn</a>.
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://theyhelpyou.co.uk/&title=TheyHelpYou&summary=&source=" target="_blank" class="alert-link">LinkedIn</a>,
+      <a href="https://wa.me/?text=https://theyhelpyou.co.uk/" target="_blank" class="alert-link">WhatsApp</a>.
     </div>
 
   </div>
@@ -232,17 +230,31 @@
 
   </div>
 
+
+<!-- Report Error
+  <div class="ml-3 mt-2">
+    <small><a href="#" title="Report these details as being out of date" class="text-muted">
+      <svg class="bi bi-flag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Flag icon</title>
+        <path fill-rule="evenodd" d="M3.5 1a.5.5 0 01.5.5v13a.5.5 0 01-1 0v-13a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 00.593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 01.5.5v6a.5.5 0 01-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 11-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 01-.554-.832l.04-.026z" clip-rule="evenodd"/>
+      </svg>
+      Report these details as being incorrect or out of date.
+    </a></small>
+  </div>
+-->
+
 <!-- /RESULTS -->
 </div>
 
 <!-- ADDITIONAL INFO + LINKS -->
 <div class="container mt-3">
-  <h4>More information</h4>
+  <h4>Official sources of Coronavirus (COVID-19) information</h4>
   <div class="card-deck">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Coronavirus Guidance</h5>
-        <p class="card-text">Read more about what you can and cannot do and other official COVID-19 Coronavirus guideance from the UK Government.</p>
+        <h5 class="card-title">What you need to do</h5>
+        <p class="card-text">Read more about what you can and cannot do and other official guidance from the UK Government.</p>
       </div>
       <div class="card-footer">
         <a class="btn btn-secondary" href="https://www.gov.uk/coronavirus" role="button">GOV.UK &raquo;</a>
@@ -250,17 +262,17 @@
     </div>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">COVID-19 Symptoms</h5>
-        <p class="card-text">Symptoms and what to do if you think you may have Coronavirus (COVID-19) from the NHS.</p>
+        <h5 class="card-title">Coronavirus (COVID-19) symptoms</h5>
+        <p class="card-text">NHS description of the symptoms and what to do if you think you may have the virus.</p>
       </div>
       <div class="card-footer">
-        <a class="btn btn-secondary" href="https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms-and-what-to-do/" role="button">NHS UK &raquo;</a>
+        <a class="btn btn-secondary" href="https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms-and-what-to-do/" role="button">NHS UK &hearts;</a>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">NHS Volunteer Responders</h5>
-        <p class="card-text">NHS Volunteer Responders has been set up to support the NHS and the care sector during the COVID-19 outbreak.</p>
+        <h5 class="card-title">Volunteer to help</h5>
+        <p class="card-text">NHS Volunteer Responders has been set up to support the NHS and the care sector during the pandemic. Find out more about the Royal Voluntary Service and the GoodSam app.</p>
       </div>
       <div class="card-footer">
         <a class="btn btn-secondary" href="https://www.goodsamapp.org/NHS" role="button">GoodSam &raquo;</a>
@@ -303,6 +315,8 @@ $(document).ready(function() {
             $("#result_hub").text(data.hub_url);
             $("#result_hub").attr("href", data.hub_url);
             $("#result_open_hub").attr("href", data.hub_url);
+
+            $("#result_date_collected").text(data.date_collected);
 
             if (data.email) {
                 $("#result_email").text(data.email);
