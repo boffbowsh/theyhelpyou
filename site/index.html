@@ -42,7 +42,7 @@
   <meta property="og:image:height" content="630">
 
   <style type="text/css">
-    #error, #results_card, #results_success, #results_error { display: none };
+    #error, #results_success, #results_error { display: none };
   </style>
 </head>
 <body>
@@ -93,11 +93,7 @@
   </div>
 </div>
 
-<!-- RESULTS -->
-<div class="container">
-
-  <a name="results" />
-
+<div class="container" id="results">
   <div id="results_placeholder" class="alert alert-light text-center" role="alert">
     Your results will appear here.
   </div>
@@ -109,142 +105,6 @@
   <div id="results_error" class="alert alert-danger" role="alert">
     Unable to find community hub for <strong>form_postcode</strong> at the moment. Please try again later.
   </div>
-
-<div id="results_card" class="card">
-  <h5 class="card-header">
-    <svg role="img" class="bi bi-geo" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <title>Icon showing a pin in a map</title>
-      <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
-      <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
-      <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
-    </svg>
-
-    <a id="result_title" href="API_HOMEPAGE_URL" title="API_NAME" target="_blank">API_NAME</a>
-  </h5>
-  <div class="card-body">
-    <div class="container">
-
-      <!-- Hub -->
-      <div class="row mt-2">
-        <div class="col-sm-4">
-          <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <title>Info symbol icon</title>
-            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
-            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-            <circle cx="8" cy="4.5" r="1"/>
-          </svg>
-
-          <span class="badge badge-pill badge-secondary">Community Hub</span>
-        </div>
-        <div class="col text-truncate">
-          <a id="result_hub" href="API_HUB_URL" title="API_NAME Community Hub" target="_blank">API_HUB_URL</a>
-        </div>
-      </div>
-
-      <!-- Email -->
-      <div class="row mt-2">
-        <div class="col-sm-4">
-          <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <title>Envelope icon</title>
-            <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
-            <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
-            <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
-          </svg>
-
-          <span class="badge badge-pill badge-secondary">Email</span>
-        </div>
-        <div class="col">
-          <a id="result_email" href="mailto:API_EMAIL" title="Email API_NAME Community Hub">API_EMAIL</a>
-        </div>
-      </div>
-
-      <!-- Phone -->
-      <div class="row mt-2">
-        <div class="col-sm-4">
-          <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <title>Smartphone icon</title>
-            <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
-            <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-          </svg>
-
-          <span class="badge badge-pill badge-secondary">Phone</span>
-        </div>
-        <div class="col">
-          <a id="result_phone" href="tel:API_PHONE" title="Call API_NAME Community Hub">API_PHONE</a>
-        </div>
-      </div>
-
-      <!-- Updated -->
-      <div class="row mt-2">
-        <div class="col-sm-4">
-          <svg role="img" class="bi bi-calendar" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <title>Calendar icon</title>
-            <path fill-rule="evenodd" d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" clip-rule="evenodd"/>
-            <path fill-rule="evenodd" d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-          </svg>
-
-          <span class="badge badge-pill badge-secondary">Last Updated</span>
-        </div>
-        <div class="col" id="result_date_collected">
-          API_DATE_COLLECTED
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-<!-- CTA Buttons -->
-  <div class="card-footer text-right">
-
-    <a class="btn btn-secondary" href="mailto:API_EMAIL" title="Email API_NAME
-    Community Hub" id="result_send_email">
-      <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <title>Email community hub icon</title>
-        <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
-        <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
-        <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
-      </svg>
-      Email
-    </a>
-
-    <a class="btn btn-secondary" href="tel:API_PHONE" title="Call API_NAME
-    Community Hub" id="result_call">
-      <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <title>Call community hub icon</title>
-        <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
-        <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-      </svg>
-      Call
-    </a>
-
-    <a class="btn btn-primary" href="API_HUB_URL" title="API_NAME Community Hub"
-    target="_blank" id="result_open_hub">
-      <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <title>Open community hub icon</title>
-        <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
-        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-        <circle cx="8" cy="4.5" r="1"/>
-      </svg>
-      Open Hub
-    </a>
-
-  </div>
-
-
-<!-- Report Error
-  <div class="ml-3 mt-2">
-    <small><a href="#" title="Report these details as being out of date" class="text-muted">
-      <svg class="bi bi-flag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <title>Flag icon</title>
-        <path fill-rule="evenodd" d="M3.5 1a.5.5 0 01.5.5v13a.5.5 0 01-1 0v-13a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
-        <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 00.593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 01.5.5v6a.5.5 0 01-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 11-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 01-.554-.832l.04-.026z" clip-rule="evenodd"/>
-      </svg>
-      Report these details as being incorrect or out of date.
-    </a></small>
-  </div>
--->
-
-<!-- /RESULTS -->
 </div>
 
 <!-- ADDITIONAL INFO + LINKS -->
@@ -294,42 +154,167 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha256-usTqAE1ywvdMtksWzdeWzD75MsfJN0h0U7y2NtZL3N0=" crossorigin="anonymous"></script>
+
+<script type="text/x-handlebars-template" id="results_template">
+<div id="results_card" class="card">
+  <h5 class="card-header">
+    <svg role="img" class="bi bi-geo" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <title>Icon showing a pin in a map</title>
+      <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
+      <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
+      <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
+    </svg>
+
+    <a href="{{homepage_url}}" title="{{name}}" target="_blank">{{name}}</a>
+  </h5>
+  <div class="card-body">
+    <div class="container">
+
+      {{#if hub_url}}
+      <!-- Hub -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Info symbol icon</title>
+            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+            <circle cx="8" cy="4.5" r="1"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Community Hub</span>
+        </div>
+        <div class="col text-truncate">
+          <a href="{{hub_url}}" title="{{name}} Community Hub" target="_blank">{{hub_url}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if email}}
+      <!-- Email -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Envelope icon</title>
+            <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
+            <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Email</span>
+        </div>
+        <div class="col">
+          <a href="mailto:{{email}}" title="Email {{name}} Community Hub">{{email}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if phone}}
+      <!-- Phone -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Smartphone icon</title>
+            <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Phone</span>
+        </div>
+        <div class="col">
+          <a href="tel:{{phone}}" title="Call {{name}} Community Hub">{{phone}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if date_collected}}
+      <!-- Updated -->
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-calendar" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Calendar icon</title>
+            <path fill-rule="evenodd" d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Last Updated</span>
+        </div>
+        <div class="col">
+          {{date_collected}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+
+<!-- CTA Buttons -->
+  <div class="card-footer text-right">
+    <a class="btn btn-secondary" href="{{ homepage_url }}" title="Visit {{name}} homepage">
+      <svg role="img" class="bi bi-house-door" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Visit homepage icon</title>
+        <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5v-4H7v4a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+      </svg>
+      Visit Homepage
+    </a>
+
+    {{#if email}}
+    <a class="btn btn-secondary" href="mailto:{{email}}" title="Email {{name}}
+    Community Hub">
+      <svg role="img" class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Email community hub icon</title>
+        <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
+        <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
+      </svg>
+      Email
+    </a>
+    {{/if}}
+
+    {{#if phone}}
+    <a class="btn btn-secondary" href="tel:{{phone}}" title="Call {{name}}
+    Community Hub">
+      <svg role="img" class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Call community hub icon</title>
+        <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+      </svg>
+      Call
+    </a>
+    {{/if}}
+
+    {{#if hub_url}}
+    <a class="btn btn-primary" href="{{hub_url}}" title="{{name}} Community Hub"
+    target="_blank">
+      <svg role="img" class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Open community hub icon</title>
+        <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+        <circle cx="8" cy="4.5" r="1"/>
+      </svg>
+      Open Hub
+    </a>
+    {{/if}}
+
+  </div>
+</script>
 
 <script type="text/javascript">
+var template = Handlebars.compile(document.getElementById('results_template').innerHTML);
+
 $(document).ready(function() {
     $("#form").on("submit", function(e) {
         e.preventDefault();
 
         var pcd = $("#form_postcode").val();
+        $("#results_card").html();
 
         $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd, function(data) {
-            console.log(data);
             $("#results_success strong").text(pcd);
             $("#results_success").show();
-            $("#results_card").show();
+            $("#results_placeholder").hide();
 
-            $("#result_title").text(data.name);
-            $("#result_title").attr("title", data.name);
-            $("#result_title").attr("href", data.homepage_url);
-
-            $("#result_hub").text(data.hub_url);
-            $("#result_hub").attr("href", data.hub_url);
-            $("#result_open_hub").attr("href", data.hub_url);
-
-            $("#result_date_collected").text(data.date_collected);
-
-            if (data.email) {
-                $("#result_email").text(data.email);
-                $("#result_email").attr("href", "mailto:"+data.email);
-                $("#result_send_email").attr("href", "mailto:"+data.email);
-            }
-
-            if (data.phone) {
-                $("#result_phone").text(data.phone);
-                $("#result_phone").attr("href", "tel:"+data.phone);
-                $("#result_call").attr("href", "tel:"+data.phone);
-
-            }
+            $(template(data)).appendTo("#results");
         });
     });
 });
