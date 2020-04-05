@@ -250,8 +250,10 @@
 
 <!-- NOTICES -->
   <div class="container mt-5">
-    <p class="text-muted">&copy; TheyHelpYou 2020.
-    <a href="#notices" id="notices-open" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.
+    <p class="text-muted">
+      &copy; TheyHelpYou 2020.<br />
+      Stay At Home, Protect The NHS, Save Lives logos &copy; Crown copyright<br />
+      <a href="#notices" id="notices-open" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.
     </p>
   </div>
 
@@ -524,6 +526,10 @@ $(document).ready(function() {
               $("#report_a_problem a").attr("data-pcd", pcd);
 
               $(results_template(data)).insertBefore("#report_a_problem");
+
+              $([document.documentElement, document.body]).animate({
+                scrollTop: $("#results_success").offset().top - 10
+              }, 250);
             })
             .fail(function(jqxhr) {
               error = JSON.parse(jqxhr.responseText);
