@@ -75,7 +75,8 @@
 <div class="jumbotron" id="content">
   <div class="container">
 
-    <div class="text-center mt-5"><div class="w-75">
+    <!-- Stay Home. Protect NHS. Save Lives -->
+    <div class="row mt-3"><div class="col"></div><div class="col-8">
       <svg class="covid__logos mr-auto ml-auto" alt="Stay at home. Protect the NHS. Save lives."
    width="100%" height="" viewBox="0 0 650 83" fill="none"
    xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +120,7 @@
        <path d="M175.003 38.8711H143.373C142.873 38.8711 142.48 39.2688 142.48 39.7751V80.7793C142.48 81.2855 142.873 81.6832 143.373 81.6832H175.003C175.503 81.6832 175.896 81.2855 175.896 80.7793V70.8717C175.896 70.3655 175.503 69.9678 175.003 69.9678H155.261V65.8818H173.575C174.075 65.8818 174.468 65.484 174.468 64.9778V55.0703C174.468 54.5641 174.075 54.1663 173.575 54.1663H155.261V50.5504H175.003C175.503 50.5504 175.896 50.1527 175.896 49.6465V39.7751C175.896 39.2688 175.468 38.8711 175.003 38.8711Z" fill="#343A40"></path>
        <image src="https://assets.publishing.service.gov.uk/collections/corona-landing-page-logos-7accb169f883cd99f3058daab6dfe9b70bdba9d85162255a3a84cb2952105c9d.png" class="covid__logos" alt="Stay at home. Protect the NHS. Save lives." xlink:href=""></image>
      </svg>
-   </div></div>
+   </div><div class="col"></div></div>
 
     <h1 class="display-3 mt-5">Find help if you are in isolation</h1>
     <p>This service signposts the local <a href="#explainer" title="What is a Community Hub?">Community Hubs</a> that are providing support to vulnerable and shielding citizens during the Coronavirus (COVID-19) pandemic.</p>
@@ -182,9 +183,9 @@
 
 
 <!-- EXPLAINER -->
-<div class="container mt-5" id="">
+<div id="explainer" class="container mt-5">
   <div class="card"><div class="card-body">
-    <h4 id="explainer" class="card-title">What is a Community Hub?</h4>
+    <h4 class="card-title">What is a Community Hub?</h4>
 
     <p>A network of 'community hubs' is being set up across the UK to deliver food to 1.5 million people with serious medical conditions who have been told to remain indoors, or <i>shield</i>, because of Coronavirus (COVID-19).</p>
 
@@ -196,8 +197,8 @@
 
 
 <!-- ADDITIONAL INFO + LINKS -->
-<div class="container mt-5">
-  <h4 id="officialinfo">Official sources of Coronavirus (COVID-19) information</h4>
+<div id="officialinfo" class="container mt-5">
+  <h4>Official sources of Coronavirus (COVID-19) information</h4>
   <div class="card-deck">
     <div class="card">
       <div class="card-body">
@@ -231,35 +232,100 @@
 
 </main>
 
-<footer>
+<footer class="bg-light py-3 mt-5">
 
 <!-- SOURCES -->
-  <div class="container">
+  <div id="sources" class="container mt-5">
     <div class="card">
         <div class="card-body">
-          <h6 id="sources" class="card-title">What is this, and where does it come from?</h6>
+          <h5 class="card-title">What is this, and where does the data come from?</h5>
           <p>TheyHelpYou is a community project to provide citizens with an easy way to find their local community hub.</p>
 
           <p>The data has been crowd-sourced, and reviewed, by volunteers that have researched 217 different websites of local authorities in England, Wales, Scotland and Northern Ireland.</p>
 
-          <p>You can find out more about the project, and how you can contribute, on the [TheyHelpYou GitHub page](https://github.com/boffbowsh/theyhelpyou).</p>
+          <p>You can find out more about the project, and how you can contribute, on the <a href="https://github.com/boffbowsh/theyhelpyou" title="TheyHelpYou project on GitHub">TheyHelpYou GitHub page</a>.</p>
         </div>
     </div>
   </div>
 
 <!-- NOTICES -->
-  <div class="container">
-    <hr>
+  <div class="container mt-5">
     <p class="text-muted">&copy; TheyHelpYou 2020.
     <a href="#notices" id="notices-open" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.
     </p>
   </div>
 
-  <div id="notices" class="container text-muted">
-    <button type="button" id="notices-close" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span> Close
+  <div id="notices" class="container text-muted my-3">
+    <h4>Privacy</h4>
+    <p>This site is run by TheyHelpYou, a group of volunteers based in the UK. We process personal data for our own domestic, rather than commercial, purposes.</p>
+
+    <p>We care about your privacy and have tried to minimise the data we collect and for how long we keep it. It is also why we adhere to the principles of the General Data Protection Regulations: we believe it is the right thing to do. This privacy statement forms part of that.</p>
+
+    <p>We don’t carry adverts, use tracking cookies, and we don’t sell your data.</p>
+
+    <h5>What data do we collect?</h5>
+    <p>We collect the following data while running this website and API:</p>
+    <ul>
+      <li>Your IP address (a unique identifier for your device or internet connection)</li>
+      <li>The date and time of your request</li>
+      <li>The postcode that you have searched for</li>
+    </ul>
+
+    <p>Both IP address and postcode can be <a hrer="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/" title="ICO key definitions">considered personal data</a>.</p>
+
+    <p>We store and process data using Amazon Web Services, a popular ‘cloud’ service, using servers based in the UK.</p>
+
+    <h5>Why do we collect data?</h5>
+    <p>We collect data to see how people use this site and API so that we can improve them.</p>
+
+    <p>The law says we must have a ‘lawful purpose’ to collect personal data.  We do so for our own domestic purposes and because we have a legitimate interest in improving this site.</p>
+
+    <h5>How long do we keep the data?</h5>
+    <p>We retain access logs for 90 days after which it is deleted.</p>
+
+    <h5>Do we share the data with others?</h5>
+    <p>We do not sell or share any data, though exemptions to data protection regulations may require us to share data about you, for example if requested by law enforcement.</p>
+
+    <p>We may, in the future, share aggregated, non-personal, statistics with local and central government. This will likely be in the format of a postcode sector (e.g. SW1A 1) and the number of times it has been searched for.</p>
+
+    <h5>Your rights</h5>
+    <p>You can ask to see the personal data we hold for you. You can also ask us to delete it. In both cases we must respond within one month.</p>
+
+    <p>You have the right to object to the use of your personal data.</p>
+
+    <p>You are not required to pay any charge for exercising your rights. If you make a request, we will respond to you within 28 days.</p>
+
+    <h6>Contact us</h6>
+    <p>To exercise your personal data rights or for any questions about how we process data, please email <a href="mailto:privacy@theyhelpyou.co.uk" title="Email privacy@theyhelpyou.co.uk">privacy@theyhelpyou.co.uk</a>.</p>
+
+    <h6>If you still have concerns</h6>
+    <p>If you believe that we are not observing your personal data rights, you also have the right to complain to the Information Commissioner’s Office and potentially to a judicial remedy.</p>
+
+    <p>Their address is: Information Commissioner’s Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF.</p>
+
+    <p>You can also contact them by telephone using their Helpline number: 0303 123 1113.</p>
+
+    <h4>Terms</h4>
+    <p>By using this website you agree to the terms stated here.</p>
+
+    <p>This website is owned and managed by TheyHelpYou (‘we’, ‘us’).</p>
+
+    <p>We are not responsible for the content of external links.</p>
+
+    <p>We will take all reasonable measures to ensure that data is corrected if you contact us regarding errors, but we cannot be held responsible for mistakes in the data or liability arising from your reliance on the data.</p>
+
+    <p>We reserve the right to alter these terms at any time.</p>
+
+    <p>These terms are governed by the law in England and Wales.</p>
+
+    <p>If you have any questions about these Terms, please contact us.</p>
+
+    <button type="button" id="notices-close" class="btn btn-secondary" aria-label="Close">
+      <span aria-hidden="true">&times;</span> Close these notices
     </button>
   </div>
+
+
 </footer>
 
 <!-- JAVASCRIPT -->
@@ -440,6 +506,7 @@ var postcode_re = /^([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?|[a-pr-uwyzA-
 
 $(document).ready(function() {
     console.log("Read about our team at https://www.theyhelpyou.co.uk/humans.txt");
+    $("#notices").hide();
 
     $("#form").on("submit", function(e) {
         e.preventDefault();
@@ -513,7 +580,6 @@ $(document).ready(function() {
     });
 
     $("#notices-open").on("click", function(e) {
-      e.preventDefault();
       $("#notices").show();
     });
     $("#notices-close").on("click", function(e) {
