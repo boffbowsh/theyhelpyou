@@ -54,7 +54,7 @@
   <meta property="og:image:height" content="630">
 
   <style type="text/css">
-    #postcode_error, #results_success, #results_error { display: none };
+    #postcode_error, #results_success, #results_error, #report_a_problem { display: none };
   </style>
 </head>
 <body>
@@ -119,6 +119,17 @@
 
   <div id="results_error" class="alert alert-danger" role="alert">
     Unable to find community hub for <strong>form_postcode</strong> at the moment. Please try again later.
+  </div>
+
+  <div id="report_a_problem" class="mt-2">
+    <small><a href="#" title="Report these details as being out of date" class="text-muted">
+      <svg class="bi bi-flag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <title>Flag icon</title>
+        <path fill-rule="evenodd" d="M3.5 1a.5.5 0 01.5.5v13a.5.5 0 01-1 0v-13a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 00.593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 01.5.5v6a.5.5 0 01-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 11-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 019 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 01-.554-.832l.04-.026z" clip-rule="evenodd"/>
+      </svg>
+      Report these details as being incorrect or out of date.
+    </a></small>
   </div>
 </div>
 
@@ -329,8 +340,28 @@
   </div>
 </script>
 
+<script type="text/x-handlebars-template" id="report_a_problem_template">
+  <div class="card">
+    <form class="card-body">
+      <div class="form-group">
+        <label for="report_a_problem_message">
+          Tell us what's wrong with this information and we'll try and fix
+          it.<br />
+          Please do not send us contact details like a phone number or email
+          address, we can't reply.
+        </label>
+        <textarea class="form-control" type="textarea"
+        id="report_a_problem_message" rows="6"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+    </form>
+  </div>
+</script>
+
 <script type="text/javascript">
 var results_template = Handlebars.compile(document.getElementById('results_template').innerHTML);
+var report_a_problem_template = Handlebars.compile(document.getElementById('report_a_problem_template').innerHTML);
+
 var postcode_not_found_template = Handlebars.compile("We don't recognise the postcode <strong>{{pcd}}</strong>. It might not exist any more, or it might be too new.");
 var lookup_error_template = Handlebars.compile("Unable to find a Community Hub for <strong>{{pcd}}</strong> at the moment. Please try again later.");
 
@@ -350,13 +381,19 @@ $(document).ready(function() {
           $("#postcode_error").hide();
           $("#results_error").hide();
           $("#results_placeholder").hide();
+          $("#report_a_problem").hide();
+          $("#report_a_problem div.card").remove();
 
           $.getJSON("https://www.theyhelpyou.co.uk/api/postcode?postcode=" + pcd)
             .done(function(data) {
               $("#results_success strong").text(pcd);
               $("#results_success").show();
+              $("#report_a_problem").show();
+              $("#report_a_problem small").show();
+              $("#report_a_problem a").attr("data-gss", data.gss);
+              $("#report_a_problem a").attr("data-pcd", pcd);
 
-              $(results_template(data)).appendTo("#results");
+              $(results_template(data)).insertBefore("#report_a_problem");
             })
             .fail(function(jqxhr) {
               error = JSON.parse(jqxhr.responseText);
@@ -370,6 +407,38 @@ $(document).ready(function() {
         } else {
           $("#postcode_error").show();
         }
+    });
+
+    $("#report_a_problem a").on("click", function(e) {
+      e.preventDefault();
+
+      $("#report_a_problem small").hide();
+      $("#report_a_problem div.card").remove();
+
+      var data = {gss: $("#report_a_problem a").attr("data-gss"), pcd: $("#report_a_problem a").attr("data-pcd")};
+      $(report_a_problem_template(data)).appendTo("#report_a_problem");
+
+      $("#report_a_problem form").on("submit", function(e) {
+        e.preventDefault();
+
+        var data = {
+          gss: $("#report_a_problem a").attr("data-gss"),
+          pcd: $("#report_a_problem a").attr("data-pcd"),
+          message: $("#report_a_problem textarea").val()
+        };
+
+        $.post("https://www.theyhelpyou.co.uk/api/report-a-problem", JSON.stringify(data))
+          .done(function() {
+            $("#report_a_problem .card-body").html(
+              '<div class="alert alert-success" role="alert">Thanks for your message. We\'ll look into it as soon as possible.</div>'
+            );
+          })
+          .fail(function() {
+            $("#report_a_problem .card-body").html(
+              '<div class="alert alert-danger" role="alert">Sorry, we had an issue receiving your message. Please try again later.</div>'
+            );
+          });
+      });
     });
 });
 </script>
