@@ -2,17 +2,13 @@ import base64
 import json
 import os
 
-from helpers import format_response
+from helpers import format_response, maybe_use_xray
 from models import CommunityHub
 
 from slack_webhook import Slack
 from pynamodb.models import DoesNotExist
 
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.core import patch_all
-
-# xray_recorder.configure()
-# patch_all()
+maybe_use_xray()
 
 slack = Slack(url=os.environ.get("WEBHOOK_URL"))
 

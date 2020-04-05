@@ -4,14 +4,10 @@ import json
 import os
 from urllib.request import urlopen
 
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.core import patch_all
-
-from helpers import format_response
+from helpers import format_response, maybe_use_xray
 from models import CommunityHub
 
-xray_recorder.configure()
-patch_all()
+maybe_use_xray()
 
 CommunityHub.create_table(wait=True)
 

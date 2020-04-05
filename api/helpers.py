@@ -1,4 +1,5 @@
 import json
+import os
 
 def format_response(data, status):
     return {
@@ -12,3 +13,11 @@ def format_response(data, status):
             "Access-Control-Allow-Methods": "OPTIONS,GET",
         },
     }
+
+def maybe_use_xray():
+    if "AWS_XRAY_DAEMON_ADDRESS" in os.environ:
+        from aws_xray_sdk.core import xray_recorder
+        from aws_xray_sdk.core import patch_all
+
+        xray_recorder.configure()
+        patch_all()
