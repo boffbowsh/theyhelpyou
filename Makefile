@@ -20,3 +20,6 @@ deploy: package.zip
 
 s3: site/index.html
 	aws s3 sync site s3://theyhelpyou/ --acl public-read --cache-control max-age=10
+
+test:
+	pipenv run pytest api
