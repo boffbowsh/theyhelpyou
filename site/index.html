@@ -251,8 +251,14 @@
   <div class="container">
     <hr>
     <p class="text-muted">&copy; TheyHelpYou 2020.
-      <!--<a href="#" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.-->
+    <a href="#notices" id="notices-open" title="TheyHelpYou Privacy and Legal Notices">Privacy and legal notices</a>.
     </p>
+  </div>
+
+  <div id="notices" class="container text-muted">
+    <button type="button" id="notices-close" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span> Close
+    </button>
   </div>
 </footer>
 
@@ -505,6 +511,16 @@ $(document).ready(function() {
           });
       });
     });
+
+    $("#notices-open").on("click", function(e) {
+      e.preventDefault();
+      $("#notices").show();
+    });
+    $("#notices-close").on("click", function(e) {
+      e.preventDefault();
+      $("#notices").hide();
+    });
+
 });
 </script>
 
