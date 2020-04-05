@@ -33,6 +33,9 @@ def lambda_handler(event, context):
     if "gss" not in data:
         return format_response("GSS code must be supplied", 400)
 
+    if "pcd" not in data:
+        return format_response("Postcode must be supplied", 400)
+
     try:
         hub = CommunityHub.get(data["gss"])
     except DoesNotExist:
@@ -83,10 +86,11 @@ def lambda_handler(event, context):
             "short": False,
         })
 
+    msg = "Problem reported with the data for {}, from postcode {}".format(hub.name, data["pcd"])
     slack.post(
-        text="Problem reported with the data for {}".format(hub.name),
+        text=msg,
         attachments=[{
-            "fallback": "Problem reported with the data for {}".format(hub.name),
+            "fallback": msg,
             "text": "*Current data:*",
             "fields": fields,
         }],
