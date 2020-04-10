@@ -8,6 +8,8 @@ from pynamodb.models import DoesNotExist
 
 maybe_use_xray()
 
+NI_GSS = "N07000001"
+
 def get_postcode_from_event(e):
     if "queryStringParameters" in e and "postcode" in e["queryStringParameters"]:
         pcd = (
@@ -22,6 +24,9 @@ def get_postcode_from_event(e):
 
 
 def get_gss(pcd):
+    if pcd.eer == NI_GSS:
+        return NI_GSS
+
     order = [pcd.oscty, pcd.oslaua]
     for gss in order:
         if re.match(r"[EWSN]9{8}", gss):

@@ -65,9 +65,10 @@ def test_scottish_council_area():
     assert res["homepage_url"] == "https://www.glasgow.gov.uk/"
 
 
+# All provided by NI Direct - the GSS code is hardcoded
 def test_nir_district():
     res = _request_postcode("BT4 3TT")
-    assert res["homepage_url"] == "https://www.belfastcity.gov.uk/"
+    assert res["homepage_url"] == "https://www.nidirect.gov.uk/"
 
 
 def test_welsh_uta():
