@@ -1,4 +1,5 @@
 import base64
+import datetime
 import json
 import os
 
@@ -48,6 +49,7 @@ def lambda_handler(event, context):
         old_value = ""
 
     hub.attribute_values[data["key"]] = data["val"]
+    hub.date_collected = datetime.datetime.today().strftime("%d/%m/%Y")
     hub.save()
 
     slack_fields = [
