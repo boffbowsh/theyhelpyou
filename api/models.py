@@ -77,3 +77,4 @@ class CommunityHub(Model):
     vulnerable_url = UnicodeAttribute(null=True)
     volunteering_url = UnicodeAttribute(null=True)
     volunteering_phone = UnicodeAttribute(null=True)
+    volunteering_email = UnicodeAttribute(null=True)
