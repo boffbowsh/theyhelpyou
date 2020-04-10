@@ -376,10 +376,61 @@
             <circle cx="8" cy="4.5" r="1"/>
           </svg>
 
-          <span class="badge badge-pill badge-secondary">Community Hub</span>
+          <span class="badge badge-pill badge-secondary">Council support hub</span>
         </div>
         <div class="col text-truncate">
           <a href="{{hub_url}}" title="{{name}} Community Hub" target="_blank">{{hub_url}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if shielding_url}}
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-shield-shaded" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Shield icon</title>
+            <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 00-2.725.802.454.454 0 00-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 008 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 002.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 00-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815z" clip-rule="evenodd"/>
+            <path d="M8 2.25c.909 0 3.188.685 4.254 1.022a.94.94 0 01.656.773c.814 6.424-4.13 9.452-4.91 9.452V2.25z"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Help for shielded people</span>
+        </div>
+        <div class="col text-truncate">
+          <a href="{{shielding_url}}" title="{{name}} shielding information" target="_blank">{{shielding_url}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if vulnerable_url}}
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-life-preserver" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Life preserver icon</title>
+            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+            <path fill-rule="evenodd" d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 1a4 4 0 100-8 4 4 0 000 8z" clip-rule="evenodd"/>
+            <path d="M11.642 6.343L15 5v6l-3.358-1.343A3.99 3.99 0 0012 8a3.99 3.99 0 00-.358-1.657zM9.657 4.358L11 1H5l1.343 3.358A3.985 3.985 0 018 4c.59 0 1.152.128 1.657.358zM4.358 6.343L1 5v6l3.358-1.343A3.985 3.985 0 014 8c0-.59.128-1.152.358-1.657zm1.985 5.299L5 15h6l-1.343-3.358A3.984 3.984 0 018 12a3.99 3.99 0 01-1.657-.358z"/>
+          </svg>
+          <span class="badge badge-pill badge-secondary">Help for other vulnerable people</span>
+        </div>
+        <div class="col text-truncate">
+          <a href="{{vulnerable_url}}" title="{{name}} support for vulnerable people" target="_blank">{{vulnerable_url}}</a>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if volunteering_url}}
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-award" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Award icon</title>
+            <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" clip-rule="evenodd"/>
+            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">How to volunteer</span>
+        </div>
+        <div class="col text-truncate">
+          <a href="{{volunteering_url}}" title="{{name}} volunteering hub" target="_blank">{{volunteering_url}}</a>
         </div>
       </div>
       {{/if}}
@@ -438,6 +489,25 @@
         </div>
       </div>
       {{/if}}
+
+      {{#if public_notes}}
+      <div class="row mt-2">
+        <div class="col-sm-4">
+          <svg role="img" class="bi bi-file-earmark-text" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <title>Notes icon</title>
+            <path d="M4 1h5v1H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6h1v7a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2z"/>
+            <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 019 4.5z"/>
+            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0-2a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+          </svg>
+
+          <span class="badge badge-pill badge-secondary">Notes</span>
+        </div>
+        <div class="col">
+          {{public_notes}}
+        </div>
+      </div>
+      {{/if}}
+
     </div>
   </div>
 
