@@ -42,6 +42,9 @@ def lambda_handler(event, context):
 
     try:
         hub = CommunityHub.get(gss)
-        return format_response(hub.attributes(), 200)
+        return format_response(hub.attribute_values, 200)
     except DoesNotExist:
         return format_response({"error": "No data found for this area"}, 404)
+
+if __name__ == "__main__":
+    print(lambda_handler({"queryStringParameters": {"postcode": "rg120uz"}}, {}))

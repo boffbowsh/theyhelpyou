@@ -25,9 +25,9 @@ def test_full_record():
         res["hub_url"]
         == "https://www.surreycc.gov.uk/people-and-community/emergency-planning-and-community-safety/coronavirus/community-support/need-help"  # noqa: W503
     )
-    assert res["email"] is None
+    assert "email" not in res
     assert res["date_collected"] == "31/03/2020"
-    assert res["notes"] is None
+    assert "notes" not in res
 
 
 def test_no_spaces():
