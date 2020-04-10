@@ -4,13 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+ipython = "*"
+pytest = "*"
 
 [packages]
 boto3 = "*"
 pynamodb = "*"
-tqdm = "*"
-retrying = "*"
-pytest = "*"
 aws-xray-sdk = "*"
 slack-webhook = "*"
 
