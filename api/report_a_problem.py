@@ -13,7 +13,6 @@ maybe_use_xray()
 slack = Slack(url=os.environ.get("WEBHOOK_URL"))
 
 def lambda_handler(event, context):
-    print(event)
     if "body" not in event:
         return format_response("Body not supplied", 400)
 
