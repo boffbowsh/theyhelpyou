@@ -28,22 +28,21 @@ def lambda_handler(event, context):
 
     if resp.status == 200:
         lines = [str(l, "utf-8") for l in resp.read().splitlines()]
-        c = csv.reader(lines)
-        next(c)
-        CommunityHub.batch_write()
-        for r in c:
-            d = {
-                "name": r[0],
-                "homepage_url": r[2],
-                "phone": r[3],
-                "hub_url": r[4],
-                "email": r[5],
-                "date_collected": r[6],
-                "notes": r[7],
-            }
+        c = csv.DictReader(lines[1:])
+        with CommunityHub.batch_write() as batch:
+            for r in c:
+                record = CommunityHub(r["gss"])
+                for k, v in r.items():
+                    if hasattr(CommunityHub, k):
+                        record.attribute_values[k] = v
 
-            record = CommunityHub(r[1], **d)
-            record.save()
+                batch.save(record)
 
     else:
         print("error fetching CSV {}".format(resp.status))
+
+if __name__ == "__main__":
+    lambda_handler({
+        "body": json.dumps({"token": os.environ.get("SECRET_TOKEN")}),
+        "isBase64Encoded": False,
+    }, {})
