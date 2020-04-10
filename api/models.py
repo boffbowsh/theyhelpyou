@@ -74,5 +74,5 @@ class CommunityHub(Model):
     notes = UnicodeAttribute(null=True)
     public_notes = UnicodeAttribute(null=True)
     shielding_url = UnicodeAttribute(null=True)
-    vulnerable_people_url = UnicodeAttribute(null=True)
+    vulnerable_url = UnicodeAttribute(null=True)
     volunteering_url = UnicodeAttribute(null=True)
