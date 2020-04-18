@@ -3,3 +3,4 @@ package.zip
 .vscode
 .pytest_cache
 .env
+.terraform
