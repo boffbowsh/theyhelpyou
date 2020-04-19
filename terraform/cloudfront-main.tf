@@ -73,7 +73,7 @@ resource "aws_cloudfront_distribution" "theyhelpyou" {
   }
 
   origin {
-    domain_name = "0jknti8qal.execute-api.eu-west-2.amazonaws.com"
+    domain_name = replace(aws_apigatewayv2_api.theyhelpyou.api_endpoint, "/^https:///", "")
     origin_id   = local.lambda_origin_id
 
     custom_origin_config {
