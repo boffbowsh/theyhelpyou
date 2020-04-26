@@ -102,6 +102,24 @@ resource "aws_cloudwatch_log_group" "update_attr" {
   retention_in_days = 14
 }
 
+resource "aws_lambda_function" "import_from_llm" {
+  function_name = "theyhelpyou_import_from_llm"
+  runtime       = "python3.7"
+  handler       = "import_from_llm.lambda_handler"
+  filename      = "empty.zip"
+  role          = aws_iam_role.theyhelpyou-lambdas.arn
+  publish       = true
+
+  lifecycle {
+    ignore_changes = [filename, source_code_hash]
+  }
+}
+
+resource "aws_cloudwatch_log_group" "import_from_llm" {
+  name              = "/aws/lambda/${aws_lambda_function.import_from_llm.function_name}"
+  retention_in_days = 14
+}
+
 data "aws_ssm_parameter" "report_a_problem-WEBHOOK_URL" {
   name = "report_a_problem-WEBHOOK_URL"
 }
