@@ -1,6 +1,15 @@
 resource "aws_apigatewayv2_api" "theyhelpyou" {
   name          = "theyhelpyou"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_credentials = false
+    allow_headers     = []
+    allow_methods     = ["GET"]
+    allow_origins     = ["*"]
+    expose_headers    = []
+    max_age           = 3600
+  }
 }
 
 resource "aws_apigatewayv2_route" "export_for_llm" {
