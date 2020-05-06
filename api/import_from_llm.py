@@ -8,7 +8,8 @@ from pynamodb.exceptions import DoesNotExist
 maybe_use_xray()
 
 CODES_TO_IMPORT = {
-    "volunteering_url": {"LGSL": "1113", "LGIL": "8"}
+    "volunteering_url": {"LGSL": "1113", "LGIL": "8"},
+    "vulnerable_url": {"LGSL": "1287", "LGIL": "8"}
 }
 
 def lambda_handler(event, context):
