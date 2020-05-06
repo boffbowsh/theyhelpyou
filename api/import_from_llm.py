@@ -20,9 +20,9 @@ def lambda_handler(event, context):
     if resp.status == 200:
         lines = [str(l, "utf-8") for l in resp.read().splitlines()]
         c = csv.DictReader(lines)
-        with CommunityHub.batch_write() as batch:
-            for r in c:
-                for attr, codes in CODES_TO_IMPORT.items():
+        for r in c:
+            for attr, codes in CODES_TO_IMPORT.items():
+                with CommunityHub.batch_write() as batch:
                     if r["LGSL"] == codes["LGSL"] and r["LGIL"] == codes["LGIL"]:
                         try:
                             record = CommunityHub.get(r["GSS"])
