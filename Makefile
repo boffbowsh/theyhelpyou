@@ -22,7 +22,7 @@ deploy_api: package.zip
 	aws lambda update-function-code --region eu-west-2 --function-name theyhelpyou_import_from_llm --s3-bucket theyhelpyou --s3-key package-$(word 1,$(shell md5sum package.zip)).zip --publish
 
 deploy_site: site/index.html
-	aws s3 sync site s3://theyhelpyou/ --acl public-read --cache-control max-age=10
+	aws s3 sync site s3://theyhelpyou/ --acl public-read --cache-control max-age=300
 
 test:
 	pipenv run pytest api
